@@ -9,7 +9,8 @@ function onLoginSubmit(event) {
     const input = loginInput.value;
     loginForm.classList.add(HIDDEN_CLASSNAME);
     console.log(input);
-    greeting.innerText = "Hello "+ input;
+    //greeting.innerText = "Hello "+ input;
+    greeting.innerText = `Hello ${input}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
