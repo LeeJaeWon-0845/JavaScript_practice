@@ -5,6 +5,11 @@ const todoForm = document.querySelector('#todo-form');
 const todoList = document.querySelector('#todo-list');
 const todoInput = todoForm.querySelector('input');
 
+function deleteTodo(event){
+    const removedLi = event.target.parentElement
+    removedLi.remove();
+}
+
 function onTodoSubmit(event){
     event.preventDefault();
     const newTodo = todoInput.value;
@@ -17,6 +22,7 @@ function addTodo(newTodo){
     const span = document.createElement('span');
     span.innerText = newTodo;
     const button = document.createElement('button');
+    button.addEventListener('click', deleteTodo)
     button.innerText = '❌';
     li.appendChild(span);
     li.appendChild(button);
