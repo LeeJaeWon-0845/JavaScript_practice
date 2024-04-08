@@ -15,8 +15,11 @@ function onTodoSubmit(event){
 function addTodo(newTodo){
     const li = document.createElement('li');
     const span = document.createElement('span');
-    li.appendChild(span);
     span.innerText = newTodo;
+    const button = document.createElement('button');
+    button.innerText = '❌';
+    li.appendChild(span);
+    li.appendChild(button);
     todoList.appendChild(li);
 }
 todoForm.addEventListener('submit', onTodoSubmit);
