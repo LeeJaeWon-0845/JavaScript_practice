@@ -4,6 +4,11 @@
 const todoForm = document.querySelector('#todo-form');
 const todoList = document.querySelector('#todo-list');
 const todoInput = todoForm.querySelector('input');
+const todos = [];
+
+function saveTodos(){
+    localStorage.setItem('todos', todos);
+}
 
 function deleteTodo(event){
     const removedLi = event.target.parentElement
@@ -14,8 +19,10 @@ function onTodoSubmit(event){
     event.preventDefault();
     const newTodo = todoInput.value;
     todoInput.value = '';
+    todos.push(newTodo);
     console.log(newTodo);
     addTodo(newTodo);
+    saveTodos();
 }
 function addTodo(newTodo){
     const li = document.createElement('li');
