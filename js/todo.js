@@ -20,15 +20,19 @@ function onTodoSubmit(event){
     event.preventDefault();
     const newTodo = todoInput.value;
     todoInput.value = '';
-    todos.push(newTodo);
-    console.log(newTodo);
-    addTodo(newTodo);
+    const newTodoObj = {
+        text: newTodo,
+        id: Date.now()
+    }
+    todos.push(newTodoObj);
+    addTodo(newTodoObj);
     saveTodos();
 }
 function addTodo(newTodo){
     const li = document.createElement('li');
+    li.id = newTodo.id;
     const span = document.createElement('span');
-    span.innerText = newTodo;
+    span.innerText = newTodo.text;
     const button = document.createElement('button');
     button.addEventListener('click', deleteTodo)
     button.innerText = '❌';
